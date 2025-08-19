@@ -19,9 +19,28 @@ const usuarioSchema = new mongoose.model(
         },
         nit: {
             type: String
-        },
-        nombreEmpresa: {
+        }, 
+        companyName: {
             type: String
+        },
+        city: {
+            type: String
+        },
+        code: {
+            type: String,
+            default: "",
+        },
+        typeUser: {
+            type: String,
+            default: "",
+        },
+        direction: {
+            type: String,
+            default: "",
+        },
+        phoneNumber: {
+            type: String,
+            default: "",
         }
     },
     {

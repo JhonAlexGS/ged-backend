@@ -4,6 +4,13 @@ import { PORT } from "./config.js";
 import cors from "cors";
 import "./database.js";
 import userRoutes from "./routes/user.routes.js";
+import fileRoutes from "./routes/file.routes.js";
+import authRoutes from "./routes/auth.routes.js";
+
+import { webcrypto } from 'node:crypto';
+if (!globalThis.crypto) {
+  globalThis.crypto = webcrypto;
+}
 
 const app = express();
 
@@ -24,6 +31,10 @@ app.get('/', (req, res) => {
 });
 
 app.use("/api/user", userRoutes);
+app.use("/api/file", fileRoutes); 
+
+app.use("/auth", authRoutes); 
+// auth/google/callback
 
 // Inicia el servidor
 app.listen(PORT, () => {

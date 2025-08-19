@@ -1,7 +1,7 @@
 import { Router } from "express";
 const router = Router();
 
-import { statusUser, getUserEmail, addUserData, sendUserEmail } from "../controller/user.controller.js";
+import { statusUser, getUserEmail, addUserData, sendUserEmail, validateCode } from "../controller/user.controller.js";
 
 router.get(
   "/", statusUser
@@ -9,6 +9,10 @@ router.get(
 
 router.get(
   "/sendCode/:email", sendUserEmail
+);
+
+router.post(
+  "/validateCode/:email", validateCode
 );
 
 router.get(
