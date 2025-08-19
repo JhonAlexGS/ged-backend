@@ -35,7 +35,7 @@ export const sendUserEmail = async (req, res) => {
                 foundUser: true
             }); 
         }else{
-            return res.status(200).json({
+            return res.status(404).json({
                 message: "El usuario no se encuentra registrado",
                 foundUser: false
             }); 
