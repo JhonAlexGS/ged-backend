@@ -105,11 +105,15 @@ export const addUserData = async (req, res) => {
 
     try {
         const responseUser = await createUser(req.body);
-        return res.status(200).json(responseUser); 
+        return res.status(200).json({
+            success: true,
+            data: responseUser
+        }); 
     } catch (error) {
         console.log("Ocurrió un error inesperado");
         console.log(error.message);
         return res.status(500).json({
+            success: false,
             message:"Error al añadir el usuario",
             user: {}
         });
